@@ -32,7 +32,7 @@ pipeline{
 		stage('Copy WAR File'){
 			steps{
 				sh 'mvn clean package'
-				sh 'ansible-playbook ansible/playbook.yml -i ansible/hosts.ini
+				sh 'ansible-playbook ansible/playbook.yml -i ansible/hosts.ini'
 			}
 		}
 	}
