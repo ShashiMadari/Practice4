@@ -1,0 +1,16 @@
+- name: Deploying the War file to Tomcat Server
+  hosts: web
+  become: yes
+  
+  tasks:
+  - name: Copying war file
+    copy:
+      src: "/var/snap/jenkins/4874/MyAnsibleApp/target/MyAnsibleApp.war"
+      dest: "/opt/tomcat/webapps/"
+      remote_src: no
+    
+  - name: Restart tomcat
+    systemd:
+      name: tomcat
+      state: restarted
+       
